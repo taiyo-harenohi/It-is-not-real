@@ -14,6 +14,6 @@ Warning: There is a lot of static variables as of now, which could bring some pr
 A folder holding 3D models used in the project. As of now, there are only some basic models and a lot of them is still missing (as in – they are not done yet). Models are made in Blender and exported in .fbx format. They use Palette found in a video that seems to be deleted...? It can't be found on Youtube anymore. 
 
 
-## dialogues
+## dialogue
 
 A folder that holds all the dialogue in the game. It has structure on its own, with more directories with their own purposes and names. 
