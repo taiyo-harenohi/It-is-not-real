@@ -66,7 +66,10 @@ public class Goals_Score : MonoBehaviour
 
     void Update()
     {
-        GoalCheck();
+        if (!Start_Cutscene.isVisible)
+        {
+            GoalCheck();
+        }
     }
 
     void GoalCheck()

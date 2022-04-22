@@ -16,34 +16,39 @@ public class Camera_Controller : MonoBehaviour
 
     void Update()
     {
-        Vector3 pos = transform.position;
-
-        // for going up
-        if (Input.mousePosition.y >= Screen.height - panBorderThickness)
+        if(!Start_Cutscene.isVisible)
         {
-            pos.y += panSpeed * Time.deltaTime;
-        }
-        if (Input.mousePosition.y <= panBorderThickness)
-        {
-            pos.y -= panSpeed * Time.deltaTime;
-        }
-        if (Input.mousePosition.x >= Screen.width - panBorderThickness)
-        {
-            pos.x += panSpeed * Time.deltaTime;
-        }
-        if (Input.mousePosition.x <= panBorderThickness)
-        {
-            pos.x -= panSpeed * Time.deltaTime;
-        }
+            Vector3 pos = transform.position;
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+            // for going up
+            if (Input.mousePosition.y >= Screen.height - panBorderThickness)
+            {
+                pos.y += panSpeed * Time.deltaTime;
+            }
+            if (Input.mousePosition.y <= panBorderThickness)
+            {
+                pos.y -= panSpeed * Time.deltaTime;
+            }
+            if (Input.mousePosition.x >= Screen.width - panBorderThickness)
+            {
+                pos.x += panSpeed * Time.deltaTime;
+            }
+            if (Input.mousePosition.x <= panBorderThickness)
+            {
+                pos.x -= panSpeed * Time.deltaTime;
+            }
 
-        Camera.main.orthographicSize -= scroll * scrollSpeed * 50f * Time.deltaTime;
+            // scroll things
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minScroll, maxScroll);
-        pos.x = Mathf.Clamp(pos.x, panLimitMin.x, panLimitMax.x);
-        pos.y = Mathf.Clamp(pos.y, panLimitMin.y, panLimitMax.y);
+            Camera.main.orthographicSize -= scroll * scrollSpeed * 50f * Time.deltaTime;
 
-        transform.position = pos;
+            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minScroll, maxScroll);
+            // pan limits == map has certain size
+            pos.x = Mathf.Clamp(pos.x, panLimitMin.x, panLimitMax.x);
+            pos.y = Mathf.Clamp(pos.y, panLimitMin.y, panLimitMax.y);
+
+            transform.position = pos;
+        }
     }
 }

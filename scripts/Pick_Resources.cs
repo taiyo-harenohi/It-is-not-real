@@ -32,7 +32,7 @@ public class Pick_Resources : MonoBehaviour
                 {
                     TextChange(hit.transform.gameObject);
                     Destroy(hit.transform.gameObject);
-                    mouseHeldTime = 0f;
+                    //mouseHeldTime = 0f;
                 }
             }
         }
